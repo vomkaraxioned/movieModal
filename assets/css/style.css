@@ -375,6 +375,24 @@ input {
     text-transform: capitalize;
 }
 
+.modal-box {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-box .input {
+  display: flex;
+}
+.removeScroll {
+  overflow-y:hidden;
+}
+.cancel {
+  color: #fff;
+  font-family: 'FontAwesome';
+  font-size: 900;
+  text-indent: -9999px;
+}
+
 
 /*=================================
   main styling ends here
@@ -396,6 +414,7 @@ input {
 @media only screen and (max-width: 540px) {
   .input {  display: none;}
   .search-btn::before { display: none;}
+  .movie h2 { width: 80%;}
 }
 
 /*media query for 425px starts here*/
@@ -403,5 +422,8 @@ input {
     .movie-info span {
         padding: 10px 0;
         margin-left: 0;
+    }
+    .modal-box form{
+        width: 80%;
     }
 }
