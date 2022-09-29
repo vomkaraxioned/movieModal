@@ -1,10 +1,6 @@
 /* Author: 
 
 */
-
-/* Author: 
-
-*/
 //Name, release-date, actor name, Producer Name 
 let movie = {
   data: [{
@@ -72,8 +68,8 @@ if(innerWidth>540) {
     const search = document.querySelector("form"),
     inputField = document.querySelector("input[name=search-key]");
     suggestionBox = document.querySelector(".suggestion");
-  inputField.addEventListener('keyup', suggest);
-  search.addEventListener('submit', showData);
+    inputField.addEventListener('keyup', suggest);
+    search.addEventListener('submit', showData);
 }else {
     const search = document.querySelector("form");
     search.addEventListener('submit', showData);
@@ -83,8 +79,9 @@ if(innerWidth>540) {
         document.body.removeChild(modalBox);
       }else {
         search.children[0].children[1].children[0].addEventListener("click",modal);
-      }   
+      }    
 }
+
 function modal() {
   let modalBox,searchField,cancel;
   clickable = false;
@@ -106,6 +103,7 @@ function modal() {
   suggestionBox = document.querySelector(".modal-box .suggestion");
   inputField.addEventListener('keyup', suggest);
 }
+
 function showData(e) {
   list.innerHTML = "";
   available = 0;
