@@ -1,11 +1,10 @@
 /* Author: 
 
 */
-let userInput, data, suggestionBox, modalBox;
-let suggestData = [], clickable = true;
+let userInput, data, suggestionBox, modalBox,movie, clickable = true;
 const search = document.querySelector("form");
 //Name, release-date, actor name, Producer Name 
-let movie = {
+ movie = {
     data: [{
         name: "Brahmastra",
         releaseDate: "09/09/2022",
@@ -109,7 +108,6 @@ function modal() {
     modalBox.addEventListener("click", (e) => {
         if (e.target == modalBox || e.target == cancel) {
             removeModal();
-            clickable = true;
         }
     });
     //appending to body
@@ -125,6 +123,7 @@ function modal() {
 function removeModal() {
     document.body.removeChild(modalBox);
     document.children[0].classList.remove("removeScroll");
+    clickable = true;
 }
 //function show and delete
 function showAndDelete(e) {
@@ -141,11 +140,15 @@ function showData(e) {
     available = 0;
     key = userInput.value.toLowerCase();
     for (x in data) {
-        name = "/" + data[x].name.toLowerCase() + "/";
-        release = "/" + data[x].release.toLowerCase() + "/";
-        actor = "/" + data[x].actor.toLowerCase() + "/";
-        producer = "/" + data[x].producer.toLowerCase() + "/";
-        if (name.search(key) || actor.search(key) || release.search(key) || producer.search(key)) {
+        name = data[x].name;
+        release = data[x].releaseDate;
+        actor = data[x].actorName;
+        producer = data[x].producerName;
+        actorPattern = "/" + actor.toLowerCase() + "\1/";
+        if (key == name.toLowerCase() || key == release.toLowerCase() || key == actor.toLowerCase() || key == producer.toLowerCase()) {
+            available = 1;
+            list.innerHTML += "<li class=\"movie\"><h2>" + name + "</h2><p class=\"movie-release\">" + release + "</p><p class =\"movie-info\">starring:" + actor + "<span>produced by:" + producer + "</span></p></li>";
+        } else if (actorPattern.search(key) == 1) {
             available = 1;
             list.innerHTML += "<li class=\"movie\"><h2>" + name + "</h2><p class=\"movie-release\">" + release + "</p><p class =\"movie-info\">starring:" + actor + "<span>produced by:" + producer + "</span></p></li>";
         }
@@ -157,7 +160,7 @@ function showData(e) {
 
 //suggest function to give suggestion
 function suggest() {
-    let userInputLength, match, push;
+    let userInputLength, match, push,suggestData = [];
     userInputLength = userInput.value.length;
     userInputStr = userInput.value.toLowerCase();
     match = false;
@@ -212,7 +215,6 @@ function selectSuggestion() {
             userInput.value = "";
             if (!clickable) {
                 removeModal();
-                clickable = true;
             }
         });
     });
