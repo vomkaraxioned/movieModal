@@ -94,7 +94,8 @@ function modal() {
   modalBox.appendChild(searchFieldReplica);
   modalBox.appendChild(cancel);
   modalBox.addEventListener("click",(e)=>{
-    if(e.target == modalBox) {
+    console.log(e.target);
+    if(e.target == modalBox || e.target == cancel) {
         document.body.removeChild(modalBox);
     }
   });
