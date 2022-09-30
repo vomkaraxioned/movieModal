@@ -445,7 +445,12 @@ input {
         padding: 10px 0;
         margin-left: 0;
     }
-
+    .movie-info { 
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+    }
     .modal-box form { width: 80%;}
 
     .modal-box {
