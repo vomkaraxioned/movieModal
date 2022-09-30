@@ -408,27 +408,6 @@ input {
     text-transform: capitalize;
 }
 
-<<<<<<< HEAD
-.modal-box {
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-.modal-box .input {
-  display: flex;
-}
-.removeScroll {
-  overflow-y:hidden;
-}
-.cancel {
-  color: #fff;
-  font-family: 'FontAwesome';
-  font-size: 900;
-  text-indent: -9999px;
-}
-
-
-=======
 .cancel {
     position: absolute;
     top: 10px;
@@ -438,7 +417,6 @@ input {
     font-weight: 900;
     text-indent: -9999px;
 }
->>>>>>> dev
 
 .cancel::before {
     float: right;
@@ -454,17 +432,11 @@ input {
 /*media query starts*/
 /*media query for 540px starts here*/
 @media only screen and (max-width: 540px) {
-<<<<<<< HEAD
-  .input {  display: none;}
-  .search-btn::before { display: none;}
-  .movie h2 { width: 80%;}
-=======
     .input { display: none;}
 
     .search-btn::before { display: none;}
 
     .movie h2 { width: 80%;}
->>>>>>> dev
 }
 
 /*media query for 425px starts here*/
@@ -473,11 +445,6 @@ input {
         padding: 10px 0;
         margin-left: 0;
     }
-<<<<<<< HEAD
-    .modal-box form{
-        width: 80%;
-    }
-=======
 
     .modal-box form { width: 80%;}
 
@@ -493,5 +460,4 @@ input {
     .modal-box .input { display: -webkit-box; display: -ms-flexbox; display: flex;}
 
     .removeScroll { overflow-y: hidden;}
->>>>>>> dev
 }
