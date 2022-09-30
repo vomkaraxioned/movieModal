@@ -84,7 +84,6 @@ function checkWidth(e) {
             search.children[0].children[1].children[0].removeEventListener("click", modal);
         } else {
             if (e.target == search) {
-                console.log("working");
                 modal();
             }
         }
