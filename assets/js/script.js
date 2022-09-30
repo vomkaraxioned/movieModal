@@ -94,7 +94,7 @@ function modal() {
   cancel.classList.add("cancel");
   div.classList.add("search");
   div.innerHTML = searchField.innerHTML;
-  console.log(div);
+
   div.children[0].addEventListener('submit', showAndDelete);
   div.children[0].children[0].children[0].children[0].addEventListener('submit', showData);
   modalBox.appendChild(div);
