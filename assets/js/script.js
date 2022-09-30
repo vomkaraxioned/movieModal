@@ -69,6 +69,7 @@ userInput.addEventListener('keyup', checkWidth);
 suggestionBox = document.querySelector(".suggestion");
 //function to check width after adding event listener
 function checkWidth(e) {
+    e.preventDefault();
     if (innerWidth > 540) {
         suggestionBox = document.querySelector(".suggestion");
         userInput = document.querySelector("input[name=search-key]");
@@ -83,6 +84,7 @@ function checkWidth(e) {
             search.children[0].children[1].children[0].removeEventListener("click", modal);
         } else {
             if (e.target == search) {
+                console.log("working");
                 modal();
             }
         }

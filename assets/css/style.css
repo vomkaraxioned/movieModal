@@ -452,7 +452,6 @@ input {
         flex-direction: column;
     }
     .modal-box form { width: 80%;}
-
     .modal-box {
         width: 100%;
         height: 100vh;
