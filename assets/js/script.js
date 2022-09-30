@@ -60,13 +60,13 @@ let movie = {
   length: 10
 };
 
-let userInput, list, data, key, name, release, actor, producer, available, i, userInputLength, match, push,suggestionBox;
+let userInput, list, data, key, name, release, actor, producer, available, i, userInputLength, match, push,suggestionBox,modalBox;
 let suggestData = [],clickable = true;
 data = movie.data;
 list = document.querySelector(".data");
 if(innerWidth>540) {
     const search = document.querySelector("form"),
-    inputField = document.querySelector("input[name=search-key]");
+    userInput = document.querySelector("input[name=search-key]");
     suggestionBox = document.querySelector(".suggestion");
     inputField.addEventListener('keyup', suggest);
     search.addEventListener('submit', showData);
@@ -83,15 +83,17 @@ if(innerWidth>540) {
 }
 
 function modal() {
-  let modalBox,searchField,cancel;
+  let searchField,cancel;
   clickable = false;
   searchField = document.querySelector(".search");
-  searchFieldReplica = searchField;
   modalBox = document.createElement("div");
+  div = document.createElement("div");
   cancel = document.createElement("span"); 
   modalBox.classList.add("modal-box");
   cancel.classList.add("cancel");
-  modalBox.appendChild(searchFieldReplica);
+  div.classList.add("search");
+  div.innerHTML = searchField.innerHTML;
+  modalBox.appendChild(div);
   modalBox.appendChild(cancel);
   modalBox.addEventListener("click",(e)=>{
     console.log(e.target);
@@ -100,15 +102,20 @@ function modal() {
     }
   });
   document.body.appendChild(modalBox);
-  inputField = document.querySelector(".modal-box input[name=search-key]");
+  document.children[0].classList.add("removeScroll");
+  userInput = document.querySelector(".modal-box input[name=search-key]");
   suggestionBox = document.querySelector(".modal-box .suggestion");
-  inputField.addEventListener('keyup', suggest);
+  div.children[0].addEventListener("submit",addAndRemove);
+  userInput.addEventListener('keyup', suggest);
 }
-
+function addAndRemove() {
+  showData();
+  document.body.removeChild(modalBox);
+}
 function showData(e) {
   list.innerHTML = "";
   available = 0;
-  key = userInput.toLowerCase();
+  key = userInput.value.toLowerCase();
   for (x in data) {
    let name,release,actor,producer,actorPattern;
       name = data[x].name;
